@@ -1,10 +1,10 @@
-import chefClaudeLogo from "./assets/images/chef-claude-icon.png"
+import chefAILogo from "./assets/images/chef-claude-icon.png"
 
 export default function Header() {
     return (
         <header>
-            <img src={chefClaudeLogo}/>
-            <h1>Chef Claude</h1>
+            <img src={chefAILogo}/>
+            <h1>Chef AI</h1>
         </header>
     )
 }
