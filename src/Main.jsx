@@ -8,10 +8,17 @@ export default function Main() {
         []
     )
     const [recipe, setRecipe] = React.useState("")
+    const [loading, setLoading] = React.useState(false)
 
     async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromAI(ingredients);
-        setRecipe(recipeMarkdown)
+        setLoading(true)
+
+        try {
+            const recipeMarkdown = await getRecipeFromAI(ingredients)
+            setRecipe(recipeMarkdown)
+        } finally {
+            setLoading(false)
+        }
     }
 
     function addIngredient(formData) {
@@ -35,6 +42,7 @@ export default function Main() {
                 <IngredientsList
                     ingredients={ingredients}
                     getRecipe={getRecipe}
+                    loading={loading}
                 />
             }
 
